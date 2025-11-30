@@ -19,5 +19,5 @@ RUN mvn package
 WORKDIR /boxfuse-sample-java-war-hello/target
 RUN cp hello-1.0.war /opt/apache-tomcat-9.0.34/webapps/
 EXPOSE 8080
-WORKDIR /opt/apache-tomcat-9.0.34/bin
-CMD ["catalina.sh", "run"]
+#WORKDIR /opt/apache-tomcat-9.0.34/bin
+CMD ["/opt/apache-tomcat-9.0.34/bin/catalina.sh", "run"]
