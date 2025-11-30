@@ -1,13 +1,7 @@
-#FROM tomcat:9.0
-#EXPOSE 8080
-#CMD ["catalina.sh", "run"]
-
-
 FROM ubuntu:20.04
 RUN apt update
 RUN apt install default-jdk -y
 RUN apt install maven -y
-#RUN apt install tomcat9 -y
 RUN apt install wget -y
 RUN wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.34/bin/apache-tomcat-9.0.34.tar.gz
 RUN tar -xzf apache-tomcat-9.0.34.tar.gz -C /opt/
@@ -19,5 +13,4 @@ RUN mvn package
 WORKDIR /boxfuse-sample-java-war-hello/target
 RUN cp hello-1.0.war /opt/apache-tomcat-9.0.34/webapps/
 EXPOSE 8080
-#WORKDIR /opt/apache-tomcat-9.0.34/bin
 CMD ["/opt/apache-tomcat-9.0.34/bin/catalina.sh", "run"]
