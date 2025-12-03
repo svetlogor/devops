@@ -5,13 +5,13 @@ services:
         build:
             context: .
         volumes:
-            - './war:/boxfuse-sample-java-war-hello/target'
+            - './war:/opt/apache-tomcat-9.0.34/webapps'
 
     prod:
         image: tomcat:9.0
         ports:
             - '8888:8080'
         volumes:
-            - './war:/usr/local/tomcat/webapps'
+            - './war/hello-1.0:/usr/local/tomcat/webapps/hello-1.0'
         depends_on:
             - dev
