@@ -9,10 +9,11 @@ services:
             - './app:/var/www/html'
 
     prod:
-        build:
-            context: ./docker
-            dockerfile: php.Dockerfile
+        image: nginx:latest
+        ports:
+            - '8888:8080'
         volumes:
             - './app:/var/www/html'
+            - './config/nginx:/etc/nginx/conf.d'
         depends_on:
             - dev
