@@ -5,7 +5,7 @@ services:
         build:
             context: .
         volumes:
-            - './war:/opt/apache-tomcat-9.0.34/webapps/'
+            - './war:/opt/hello-1.0.war'
 
     prod:
         image: tomcat:9.0
