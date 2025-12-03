@@ -1,0 +1,18 @@
+---
+version: '1'
+services:
+    dev:
+        build:
+            context: ./docker
+            dockerfile: php.Dockerfile
+        volumes:
+            - './app:/var/www/html'
+
+    prod:
+        build:
+            context: ./docker
+            dockerfile: php.Dockerfile
+        volumes:
+            - './app:/var/www/html'
+        depends_on:
+            - dev
