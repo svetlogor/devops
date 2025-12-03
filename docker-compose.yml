@@ -3,17 +3,15 @@ version: '1'
 services:
     dev:
         build:
-            context: ./docker
-            dockerfile: php.Dockerfile
+            context: .
         volumes:
-            - './app:/var/www/html'
+            - './war:/opt/apache-tomcat-9.0.34/webapps/hello-1.0.war'
 
     prod:
-        image: nginx:latest
+        image: tomcat:9.0
         ports:
             - '8888:8080'
         volumes:
-            - './app:/var/www/html'
-            - './config/nginx:/etc/nginx/conf.d'
+            - './war/hello-1.0.war:/usr/local/tomcat/webapps/'
         depends_on:
             - dev
