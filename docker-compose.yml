@@ -5,7 +5,7 @@ services:
         build:
             context: .
         volumes:
-            - './war:/opt/hello-1.0.war'
+            - './war:/opt/'
 
     prod:
         image: tomcat:9.0
